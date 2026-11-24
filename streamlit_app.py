@@ -1,124 +1,104 @@
 
 import streamlit as st
-import pandas as pd
 import random
 
-# Page Configuration
 st.set_page_config(
-    page_title="My First Streamlit App",
-    page_icon="🚀",
-    layout="wide"
+    page_title="67 BRAINROT",
+    page_icon="🗿",
+    layout="centered"
 )
 
-# Main Title
-st.title("🚀 Welcome to My App!")
-st.subheader("A Simple Interactive Web Application")
-st.write("Explore my application and try out the interactive features!")
+# CSS styling
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #1a0033, #330066, #000033);
+    color: white;
+}
+h1 {
+    text-align: center;
+    color: #FFD700 !important;
+    font-size: 55px !important;
+}
+.big67 {
+    text-align: center;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 0 0 20px cyan;
+}
+</style>
+""", unsafe_allow_html=True)
 
+# Title
+st.title("🗿 67 BRAINROT 🗿")
+st.markdown("<div class='big67'>67</div>", unsafe_allow_html=True)
+
+st.subheader("Welcome to the 67 Dimension 💀")
+st.write("⚠️ Warning: This app may cause permanent brain damage.")
+
+# Session state
+if "count" not in st.session_state:
+    st.session_state.count = 0
+
+quotes = [
+    "67 IS NOT A NUMBER. IT'S A LIFESTYLE 🗿",
+    "Bro is NOT escaping the 67 allegations 💀",
+    "SIX SEVENNNNN 🗣️🔥",
+    "67% brain cells remaining...",
+    "When life gives you lemons, calculate 67.",
+    "You are not ready for this level of 67.",
+    "67 RIZZ UNLOCKED 😭",
+    "WHO LET BRO COOK 💀",
+    "67 SIGMA MODE ACTIVATED 🗿"
+]
+
+# Random quote
+if st.button("🎲 RELEASE THE 67"):
+    st.session_state.count += 1
+    st.success(random.choice(quotes))
+    st.balloons()
+
+# Counter
 st.divider()
+st.subheader("📈 67 POWER COUNTER")
 
-# Sidebar
-st.sidebar.title("📌 Navigation")
-menu = st.sidebar.radio(
-    "Choose a page:",
-    ["Home", "About Me", "Fun Interaction", "Data Dashboard"]
-)
+st.metric("Total 67 Energy", st.session_state.count * 67)
 
-# Home Page
-if menu == "Home":
+col1, col2 = st.columns(2)
 
-    st.header("🏠 Home Page")
-    st.success("Welcome! You have successfully opened my Streamlit App.")
+with col1:
+    if st.button("➕ MORE 67"):
+        st.session_state.count += 1
 
-    col1, col2, col3 = st.columns(3)
+with col2:
+    if st.button("💀 RESET"):
+        st.session_state.count = 0
 
-    with col1:
-        st.metric("Users", "1,250", "+50")
+st.write(f"### Current Level: {st.session_state.count}")
 
-    with col2:
-        st.metric("Projects", "15", "+3")
+# Challenge
+st.divider()
+st.subheader("🔥 THE ULTIMATE 67 TEST")
 
-    with col3:
-        st.metric("Rating", "4.8 ⭐", "+0.2")
+answer = st.text_input("What is 6 + 7?")
 
-    st.divider()
-
-    st.subheader("👋 Say Hello!")
-
-    name = st.text_input("What is your name?", placeholder="Enter your name here...")
-
-    if st.button("Greet Me! 👋"):
-        if name:
-            st.success(f"Hello, {name}! Welcome to my application!")
-            st.balloons()
-        else:
-            st.warning("Please enter your name first!")
-
-# About Me Page
-elif menu == "About Me":
-
-    st.header("🙋 About Me")
-
-    st.write("""
-    Hello! Welcome to my personal application.
-
-    I am a Computer Science student who enjoys:
-    """)
-
-    st.markdown("""
-    - 💻 Programming
-    - 🤖 Artificial Intelligence
-    - 🏸 Badminton
-    - 🏀 Basketball
-    """)
-
-    st.info("This application is developed using Python and Streamlit.")
-
-# Fun Interaction Page
-elif menu == "Fun Interaction":
-
-    st.header("🎮 Fun Interaction")
-
-    st.write("Let's try some interactive features!")
-
-    # Button
-    if st.button("Click Me! 🎉"):
-        st.success("Hello, my app! 6767676767")
+if st.button("SUBMIT ANSWER"):
+    if answer == "13":
+        st.error("WRONG. THE ANSWER IS 67. 🗿")
         st.balloons()
+    elif answer == "67":
+        st.success("YOU ARE THE CHOSEN ONE. 🗣️🔥")
+        st.snow()
+    else:
+        st.warning("Bro failed the 67 test 💀")
 
-    st.divider()
-
-    # Slider
-    age = st.slider("Select your age:", 1, 100, 21)
-    st.write(f"Your selected age is **{age}**.")
-
-    # Rating
-    rating = st.slider("Rate this application ⭐", 1, 10, 5)
-    st.write(f"You rated this app: {rating}/10")
-
-    st.divider()
-
-    # Random Number
-    if st.button("Generate Random Number 🎲"):
-        number = random.randint(1, 100)
-        st.info(f"Your lucky number is: {number}")
-
-# Data Dashboard Page
-elif menu == "Data Dashboard":
-
-    st.header("📊 Data Dashboard")
-
-    data = pd.DataFrame({
-        "Month": ["January", "February", "March", "April", "May"],
-        "Visitors": [120, 200, 180, 300, 450]
-    })
-
-    st.subheader("Monthly Visitors")
-    st.bar_chart(data.set_index("Month"))
-
-    st.subheader("Visitor Data")
-    st.dataframe(data, use_container_width=True)
-
-# Footer
+# Final boss
 st.divider()
-st.caption("© 2026 My Streamlit App | Developed with Python ❤️")
+
+if st.button("☢️ SUMMON THE FINAL BOSS"):
+    st.markdown("# SIX SEVENNNNNNNNN 🗣️🔥🔥🔥")
+    st.balloons()
+    st.snow()
+
+st.caption("© 2026 67 University | Powered by Brainrot Technology")
